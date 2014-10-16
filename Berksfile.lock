@@ -1,0 +1,7 @@
+{
+  "sources": {
+    "mysql": {
+      "path": "./site-cookbooks/mysql"
+    }
+  }
+}
