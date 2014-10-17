@@ -12,7 +12,16 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # Every Vagrant virtual environment requires a box to build off of.
   config.vm.box = "centos6-virtualbox"
-  config.vm.network :private_network, ip: "192.168.33.10"
+
+  config.vm.define "dbmaster" do |dbmaster|
+    dbmaster.vm.hostname = "dbmaster"
+    dbmaster.vm.network :private_network, ip: "192.168.33.10"
+  end
+
+  config.vm.define "dbslave" do |dbslave|
+    dbslave.vm.hostname = "dbslave"
+    dbslave.vm.network :private_network, ip: "192.168.33.11"
+  end
 
     config.vm.provider :virtualbox do |v|
       v.name = config.vm.hostname
